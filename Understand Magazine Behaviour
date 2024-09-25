@@ -1,1 +1,113 @@
+Introduction
+The objective of this analysis is to understand the factors influencing magazine subscription behavior by analyzing a comprehensive dataset containing customer profiles. The dataset includes demographic information (such as age, education, and marital status), spending habits across various product categories, past purchase history, campaign responses, and other personal characteristics like income level. This analysis aims to uncover insights that can inform targeted marketing and personalized customer engagement strategies.
+Data Description:
+The dataset comprises 2240 rows and 29 features (26 numerical and 3 categorical).
+Data Cleaning 
+Handling Missing Values:
+•	The dataset contained 24 missing values in the "Income" column. These were addressed through mean imputation, ensuring the dataset’s completeness and facilitating more accurate analysis.
+Removing Duplicate Rows:
+•	A thorough examination confirmed that no duplicate rows were present in the dataset, thereby maintaining its integrity and consistency.
+Calculating Customer Ages:
+•	To determine customer ages, the "Year_Birth" column was utilized by subtracting birth years from 2024, providing a relevant age metric for analysis.
+Dropping Irrelevant Columns:
+•	Columns such as 'ID,' 'Z_CostContact,' 'Z_Revenue,' and 'Dt_Customer' were removed as they were deemed extraneous to the core analysis and did not contribute to the insights.
+Simplifying Categorical Data:
+•	The "Education" column was consolidated into three broader categories: "Undergraduate," "Graduate," and "Postgraduate," to streamline the analysis.
+•	The "Marital_Status" column was reclassified into two categories: "Single" and "Married," simplifying the interpretation of marital data.
+Combining Columns:
+•	A new "Kids" column was created by aggregating data from the "Kidhome" and "Teenhome" columns, enhancing the clarity of household composition analysis.
+Renaming Column Names:
+•	Column names were updated for improved clarity and ease of understanding, ensuring that the dataset's features were intuitively labeled.
+Exploratory Data Analysis (EDA)
+Figure 1:
+•	Education and Marital Status Distribution:
+o	Half of the individuals have a graduate degree, around a third have a postgraduate degree, and a smaller portion have an undergraduate degree.
+o	The majority are married, while a significant minority are single. This data helps understand the demographic profile of the population.
+Figure 2:
+•	Spending Behavior:
+o	Higher spending on wine compared to other categories like fruits, meat, fish, sweets, and gold.
+o	Varying distributions in different types of purchases (deals, web, catalog, and store) indicate diverse purchasing preferences among customers.
+o	The histogram for complaints shows that the majority of customers have not filed complaints, suggesting general customer satisfaction or low reporting.
+Figure 3:
+•	Correlation Analysis:
+o	Strong positive correlation between customer income and spending behavior.
+o	Significant positive correlations between income and spending on wine, meat, and purchases through catalog and in-store channels.
+Logistic Regression & SVM Model
+Data Preprocessing:
+•	Categorical variables were encoded to ensure that the models could accurately process the data. This encoding is essential for consistent category representation, which significantly enhances model performance.
+Data Splitting:
+•	The dataset was divided into independent variables and the target variable. It was then further partitioned into training (70%) and testing (30%) subsets to facilitate model development and evaluation.
+Standardization:
+•	Numerical features were standardized to ensure they are on a comparable scale, thereby preventing features with larger scales from disproportionately influencing the model.
+Logistic Regression Model:
+•	The logistic regression model achieved an accuracy rate of approximately 88.5%.
+•	Confusion Matrix:
+o	True Positives: 564
+o	True Negatives: 31
+o	False Positives: 13
+o	False Negatives: 64
+•	Significant Factors:
+o	Married individuals are more likely to subscribe.
+o	Recent activity negatively affects subscriptions.
+o	Higher spending on meat boosts subscriptions.
+o	More website visits lead to higher subscriptions.
+o	Positive responses to marketing campaigns drive subscriptions.
+o	Fewer in-store purchases relate to higher subscriptions.
+o	Households with fewer children increase subscriptions.
+Support Vector Machine (SVM) Model:
+•	The SVM model achieved an accuracy of 87.9% in predicting subscription behavior, demonstrating robust predictive performance.
+Conclusion
+The analysis revealed that the logistic regression model outperformed the Support Vector Machine (SVM) model in predicting magazine subscription behavior. With an accuracy of 88.5%, the logistic regression model slightly exceeded the SVM model's accuracy of 87.9%. More importantly, the logistic regression model demonstrated superior recall for Class 1, effectively identifying a higher proportion of potential subscribers compared to the SVM model. Although the SVM model showed marginally better precision, it was less effective in capturing all positive instances.
+Key predictors identified through the logistic regression model include:
+•	Marital Status: Married individuals are more likely to subscribe, highlighting the importance of targeting this demographic group.
+•	Recency: Recent customer activity negatively impacts subscription likelihood, emphasizing the need for strategies to re-engage recent customers.
+•	Number of Web Visits per Month: Frequent visits to the company's website are positively correlated with subscriptions, suggesting that enhancing online customer experience could boost subscription rates.
+Overall, the logistic regression model provides valuable insights and actionable recommendations for improving targeted marketing strategies and customer engagement efforts. Regular monitoring and model adjustments will ensure these strategies remain effective over time.
+
+References
+•  Hastie, T., Tibshirani, R., & Friedman, J. (2009). The Elements of Statistical Learning: Data Mining, Inference, and Prediction (2nd ed.). Springer.
+•  James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). An Introduction to Statistical Learning: With Applications in R (2nd ed.). Springer.
+•  Chung, J. (2019). Support Vector Machine (SVM) Tutorial: How it works. Retrieved from https://towardsdatascience.com/support-vector-machine-svm-tutorial-how-it-works-1c1b78e1a3b3
+•  Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., & others. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+•  Kuhn, M., & Johnson, K. (2013). Applied Predictive Modeling. Springer.
+•  Bishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix
+
+•	Figure 1: Education and Marital Status Distribution
+ 
+
+•	Figure 2: Histograms for Understanding Distribution
+  
+•	Figure 3: Correlation Matrix
+ 
+•	Figure 4: Logistic Regression Model
+ 
+•	Figure 5: Logistic Model Result Summary (Statsmodels)
+ 
+•	Figure 6: SVM Model
+
+ 
+
+•	Figure 7: Confusion Matrix for Both Models
+ 
 
